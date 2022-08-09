@@ -1,6 +1,6 @@
 import React from 'react'
-import { MainProvider } from '../../Context/Context'
-
+import { useMainContext } from '../../Context/Context'
+import "../../App.css"
 
 
 const CitySearch = () => {
@@ -9,11 +9,13 @@ const CitySearch = () => {
         city,
         setCity,
         handleSubmit,
-    } = MainProvider
-console.log(city);
+    } = useMainContext()
+
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='form_container' onSubmit={handleSubmit}>
             <input
+                className='input_area'
+                placeholder='location'
                 value={city}
                 onChange={(e) => { setCity(e.target.value) }}
             />
